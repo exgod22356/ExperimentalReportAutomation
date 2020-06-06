@@ -13,14 +13,14 @@ FirstFart = [
     "通过这次课程，我明白了很多东西。"
 ]
 TopSentences = [
-    "这次课程让我了解到了与{}有关的各种知识。",
-    "这次课程加深了我对{}的理解，使我对它的认知更为深刻了。",
-    "这次课程让我更加扎实地掌握了{}的相关知识"
+    "它让我了解到了与{}有关的各种知识。",
+    "它加深了我对{}的理解，使我对它的认知更为深刻了。",
+    "它让我更加扎实地掌握了{}的相关知识。"
 ]
 CommonFart = [
     "学习{}并不是一项简单的事，但是也并不困难，只是需要为此付出精力。",
     "{}的学习让我暴露了许多我对于相关知识的不足之处，让我补足了许多。",
-    "这次课程让我实质地接触到了，了解到了{}的本质。",
+    "我在这门课程中实质地接触到了，了解到了{}的本质。",
     "对{}的学习让我认识到了更多的东西。",
     "我充分了解了{}的本质。",
     "学以致用，这门课程提高了我的动手能力，培养了我对{}的认知，对前面实验所掌握的知识和技能也起到了一个很好的复习和锻炼。",
@@ -47,26 +47,25 @@ EndingFart = [
     "总的来说这次收获挺多。在将来，我还需要继续学习{},以更好地掌握相关知识",
     "总之，这次对{}的学习，让我收获了不少。"
 ]
+while True:
+    random.shuffle(FirstFart)
+    random.shuffle(TopSentences)
+    random.shuffle(CommonFart)
+    random.shuffle(TransitionFart)
+    random.shuffle(QuestionFart)
+    random.shuffle(EndingFart)
 
-random.shuffle(FirstFart)
-random.shuffle(TopSentences)
-random.shuffle(CommonFart)
-random.shuffle(TransitionFart)
-random.shuffle(QuestionFart)
-random.shuffle(EndingFart)
+    teststr = input()
+    articlelis = []
+    articlelis.append(FirstFart[0])
+    articlelis.append(TopSentences[0].format(teststr))
+    articlelis.append(CommonFart[0].format(teststr))
+    articlelis.append(QuestionFart[0])
+    articlelis.append(TransitionFart[0])
+    articlelis.append(CommonFart[1].format(teststr))
+    articlelis.append(EndingFart[0].format(teststr))
+    article = ""
+    for i in articlelis:
+        article+=i
 
-teststr = input()
-articlelis = []
-articlelis.append(FirstFart[0])
-articlelis.append(TopSentences[0].format(teststr))
-articlelis.append(CommonFart[0].format(teststr))
-articlelis.append(QuestionFart[0])
-articlelis.append(TransitionFart[0])
-articlelis.append(CommonFart[1].format(teststr))
-articlelis.append(EndingFart[0].format(teststr))
-article = ""
-for i in articlelis:
-    article+=i
-
-print(article)
-time.sleep(30)
+    print(article)
